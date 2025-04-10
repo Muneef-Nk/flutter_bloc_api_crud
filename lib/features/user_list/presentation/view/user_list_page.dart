@@ -41,7 +41,7 @@ class _UserListPageState extends State<UserListPage> {
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels - 100 >=
+    if (_scrollController.position.pixels >=
             _scrollController.position.maxScrollExtent &&
         !_isFetchingMore) {
       _isFetchingMore = true;
@@ -183,7 +183,8 @@ class _UserListPageState extends State<UserListPage> {
                       separatorBuilder:
                           (context, index) => const Divider(height: 0.5),
                       padding: EdgeInsets.symmetric(horizontal: 15),
-                      itemCount: state.users.length + (_isFetchingMore ? 1 : 0),
+                      itemCount: state.users.length + 1,
+
                       itemBuilder: (context, index) {
                         if (index == state.users.length) {
                           return Center(
